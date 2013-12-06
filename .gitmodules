@@ -1,15 +1,15 @@
-[submodule "Open-Transactions"]
-	path = Open-Transactions
-	url = https://github.com/FellowTraveler/Open-Transactions.git
-[submodule "msgpack-c"]
-	path = msgpack-c
-	url = https://github.com/msgpack/msgpack-c
-[submodule "zeromq2-x"]
-	path = zeromq2-x
+[submodule "ot/Open-Transactions"]
+	path = ot/Open-Transactions
+	url = git@github.com:FellowTraveler/Open-Transactions.git
+[submodule "ot/zeromq2-x"]
+	path = ot/zeromq2-x
 	url = https://github.com/zeromq/zeromq2-x
+[submodule "ot/protobuf"]
+	path = ot/protobuf
+	url = https://github.com/lisong/protobuf-ios-and-android-ndk.git
+[submodule "ot/ChaiScript"]
+	path = ot/ChaiScript
+	url = https://github.com/ChaiScript/ChaiScript.git
 [submodule "openssl-android"]
 	path = openssl-android
-	url = https://github.com/eighthave/openssl-android.git
-[submodule "protobuf-ios-and-android-ndk"]
-	path = protobuf-ios-and-android-ndk
-	url = https://github.com/lisong/protobuf-ios-and-android-ndk.git
+	url = git@github.com:FellowTraveler/openssl-android.git
