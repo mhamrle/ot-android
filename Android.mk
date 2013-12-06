@@ -13,7 +13,8 @@ LOCAL_MODULE := native
 #LOCAL_C_INCLUDES := $(LOCAL_PATH)/libos/include
 
 # setup the included libs for the main module
-LOCAL_STATIC_LIBRARIES := libcrypto_static libssl_static # note that order matters here
+LOCAL_STATIC_LIBRARIES := libotapi_static # note that order matters here
+#LOCAL_STATIC_LIBRARIES := libcrypto_static libssl_static libotapi_static # note that order matters here
 
 include $(BUILD_STATIC_LIBRARY)
 
@@ -24,5 +25,7 @@ include $(BUILD_STATIC_LIBRARY)
 # changes after each include
 ZPATH := $(LOCAL_PATH)
 
-include $(ZPATH)/openssl-android/crypto/Android.mk
-include $(ZPATH)/openssl-android/ssl/Android.mk
+#include $(ZPATH)/openssl-android/crypto/Android.mk
+#include $(ZPATH)/openssl-android/ssl/Android.mk
+
+include $(ZPATH)/ot/Android.mk

@@ -2,111 +2,109 @@ LOCAL_PATH:= $(call my-dir)
 
 
 local_src_files := \
-	otapi/OTAPI.cpp \
-	otapi/OTClient.cpp \
-	otapi/OTServerConnection.cpp \
-	otapi/OpenTransactions.cpp \
-	otapi/OTAPI_Basic.cpp \
-	otapi/OTMadeEasy.cpp \
-	otapi/OT_ME.cpp \
-	otlib/OTASCIIArmor.cpp \
-	otlib/OTAccount.cpp \
-	otlib/OTAgreement.cpp \
-	otlib/OTAssetContract.cpp \
-	otlib/OTAsymmetricKey.cpp \
-	otlib/OTBasket.cpp \
-	otlib/OTBylaw.cpp \
-	otlib/OTCachedKey.cpp \
-	otlib/OTCheque.cpp \
-	otlib/OTContract.cpp \
-	otlib/OTCredential.cpp \
-	otlib/OTCron.cpp \
-	otlib/OTCronItem.cpp \
-	otlib/OTCrypto.cpp \
-	otlib/OTData.cpp \
-	otlib/OTDataCheck.cpp \
-	otlib/OTDigitalCash.cpp \
-	otlib/OTEnvelope.cpp \
-	otlib/OTIdentifier.cpp \
-	otlib/OTInstrument.cpp \
-	otlib/OTItem.cpp \
-	otlib/OTKeyring.cpp \
-	otlib/OTLedger.cpp \
-	otlib/OTLog.cpp \
-	otlib/OTMarket.cpp \
-	otlib/OTMessage.cpp \
-	otlib/OTMessageBuffer.cpp \
-	otlib/OTMint.cpp \
-	otlib/OTOffer.cpp \
-	otlib/OTPassword.cpp \
-	otlib/OTPaths.cpp \
-	otlib/OTPayload.cpp \
-	otlib/OTPayment.cpp \
-	otlib/OTPaymentPlan.cpp \
-	otlib/OTPseudonym.cpp \
-	otlib/OTPurse.cpp \
-	otlib/OTScript.cpp \
-	otlib/OTScriptable.cpp \
-	otlib/OTServerContract.cpp \
-	otlib/OTSettings.cpp \
-	otlib/OTSignature.cpp \
-	otlib/OTSignedFile.cpp \
-	otlib/OTSmartContract.cpp \
-	otlib/OTStorage.cpp \
-	otlib/OTString.cpp \
-	otlib/OTStringXML.cpp \
-	otlib/OTSymmetricKey.cpp \
-	otlib/OTToken.cpp \
-	otlib/OTTrackable.cpp \
-	otlib/OTTrade.cpp \
-	otlib/OTTransaction.cpp \
-	otlib/OTTransactionType.cpp \
-	otlib/OTWallet.cpp \
-	otlib/bigint/BigInteger.cc \
-	otlib/bigint/BigIntegerAlgorithms.cc \
-	otlib/bigint/BigIntegerUtils.cc \
-	otlib/bigint/BigUnsigned.cc \
-	otlib/bigint/BigUnsignedInABase.cc \
-	otlib/irrxml/irrXML.cpp \
-	otlib/lucre/bankimp.cpp \
-	otlib/otext/Timer.cpp \
-	otlib/otext/anyoption.cpp \
-	otlib/otext/tinythread.cpp \
-	otlib/otprotob/Bitcoin.cc \
-	otlib/otprotob/Generics.cc \
-	otlib/otprotob/Markets.cc \
-	otlib/otprotob/Moneychanger.cc \
-	otlib/simpleini/ConvertUTF.cpp \
-	otlib/otext/easyzlib.c \
-	otlib/otext/mkcert.c \
-	../swig/otapi/OTAPI-java.cxx
+	Open-Transactions/src/otapi/OTAPI.cpp \
+	Open-Transactions/src/otapi/OTClient.cpp \
+	Open-Transactions/src/otapi/OTServerConnection.cpp \
+	Open-Transactions/src/otapi/OpenTransactions.cpp \
+	Open-Transactions/src/otapi/OTAPI_Basic.cpp \
+	Open-Transactions/src/otapi/OTMadeEasy.cpp \
+	Open-Transactions/src/otapi/OT_ME.cpp \
+	Open-Transactions/src/otlib/OTASCIIArmor.cpp \
+	Open-Transactions/src/otlib/OTAccount.cpp \
+	Open-Transactions/src/otlib/OTAgreement.cpp \
+	Open-Transactions/src/otlib/OTAssetContract.cpp \
+	Open-Transactions/src/otlib/OTAsymmetricKey.cpp \
+	Open-Transactions/src/otlib/OTBasket.cpp \
+	Open-Transactions/src/otlib/OTBylaw.cpp \
+	Open-Transactions/src/otlib/OTCachedKey.cpp \
+	Open-Transactions/src/otlib/OTCheque.cpp \
+	Open-Transactions/src/otlib/OTContract.cpp \
+	Open-Transactions/src/otlib/OTCredential.cpp \
+	Open-Transactions/src/otlib/OTCron.cpp \
+	Open-Transactions/src/otlib/OTCronItem.cpp \
+	Open-Transactions/src/otlib/OTCrypto.cpp \
+	Open-Transactions/src/otlib/OTData.cpp \
+	Open-Transactions/src/otlib/OTDataCheck.cpp \
+	Open-Transactions/src/otlib/OTDigitalCash.cpp \
+	Open-Transactions/src/otlib/OTEnvelope.cpp \
+	Open-Transactions/src/otlib/OTIdentifier.cpp \
+	Open-Transactions/src/otlib/OTInstrument.cpp \
+	Open-Transactions/src/otlib/OTItem.cpp \
+	Open-Transactions/src/otlib/OTKeyring.cpp \
+	Open-Transactions/src/otlib/OTLedger.cpp \
+	Open-Transactions/src/otlib/OTLog.cpp \
+	Open-Transactions/src/otlib/OTMarket.cpp \
+	Open-Transactions/src/otlib/OTMessage.cpp \
+	Open-Transactions/src/otlib/OTMessageBuffer.cpp \
+	Open-Transactions/src/otlib/OTMint.cpp \
+	Open-Transactions/src/otlib/OTOffer.cpp \
+	Open-Transactions/src/otlib/OTPassword.cpp \
+	Open-Transactions/src/otlib/OTPaths.cpp \
+	Open-Transactions/src/otlib/OTPayload.cpp \
+	Open-Transactions/src/otlib/OTPayment.cpp \
+	Open-Transactions/src/otlib/OTPaymentPlan.cpp \
+	Open-Transactions/src/otlib/OTPseudonym.cpp \
+	Open-Transactions/src/otlib/OTPurse.cpp \
+	Open-Transactions/src/otlib/OTScript.cpp \
+	Open-Transactions/src/otlib/OTScriptable.cpp \
+	Open-Transactions/src/otlib/OTServerContract.cpp \
+	Open-Transactions/src/otlib/OTSettings.cpp \
+	Open-Transactions/src/otlib/OTSignature.cpp \
+	Open-Transactions/src/otlib/OTSignedFile.cpp \
+	Open-Transactions/src/otlib/OTSmartContract.cpp \
+	Open-Transactions/src/otlib/OTStorage.cpp \
+	Open-Transactions/src/otlib/OTString.cpp \
+	Open-Transactions/src/otlib/OTStringXML.cpp \
+	Open-Transactions/src/otlib/OTSymmetricKey.cpp \
+	Open-Transactions/src/otlib/OTToken.cpp \
+	Open-Transactions/src/otlib/OTTrackable.cpp \
+	Open-Transactions/src/otlib/OTTrade.cpp \
+	Open-Transactions/src/otlib/OTTransaction.cpp \
+	Open-Transactions/src/otlib/OTTransactionType.cpp \
+	Open-Transactions/src/otlib/OTWallet.cpp \
+	Open-Transactions/src/otlib/bigint/BigInteger.cc \
+	Open-Transactions/src/otlib/bigint/BigIntegerAlgorithms.cc \
+	Open-Transactions/src/otlib/bigint/BigIntegerUtils.cc \
+	Open-Transactions/src/otlib/bigint/BigUnsigned.cc \
+	Open-Transactions/src/otlib/bigint/BigUnsignedInABase.cc \
+	Open-Transactions/src/otlib/irrxml/irrXML.cpp \
+	Open-Transactions/src/otlib/lucre/bankimp.cpp \
+	Open-Transactions/src/otlib/otext/Timer.cpp \
+	Open-Transactions/src/otlib/otext/anyoption.cpp \
+	Open-Transactions/src/otlib/otext/tinythread.cpp \
+	Open-Transactions/src/otlib/otprotob/Bitcoin.cc \
+	Open-Transactions/src/otlib/otprotob/Generics.cc \
+	Open-Transactions/src/otlib/otprotob/Markets.cc \
+	Open-Transactions/src/otlib/otprotob/Moneychanger.cc \
+	Open-Transactions/src/otlib/simpleini/ConvertUTF.cpp \
+	Open-Transactions/src/otlib/otext/mkcert.cpp \
+	Open-Transactions/swig/otapi/OTAPI-java.cxx
 
 
 local_c_includes := \
-	$(NDK_PROJECT_PATH) \
-	$(NDK_PROJECT_PATH)/include \
-	$(NDK_PROJECT_PATH)/include/bigint \
-	$(NDK_PROJECT_PATH)/include/containers \
-	$(NDK_PROJECT_PATH)/include/irrxml \
-	$(NDK_PROJECT_PATH)/include/lucre \
-	$(NDK_PROJECT_PATH)/include/otapi \
-	$(NDK_PROJECT_PATH)/include/otlib \
-	$(NDK_PROJECT_PATH)/include/ots \
-	$(NDK_PROJECT_PATH)/include/simpleini \
-	$(NDK_PROJECT_PATH)/swig/otapi
+	$(LOCAL_PATH)/Open-Transactions/include \
+	$(LOCAL_PATH)/Open-Transactions/include/bigint \
+	$(LOCAL_PATH)/Open-Transactions/include/containers \
+	$(LOCAL_PATH)/Open-Transactions/include/irrxml \
+	$(LOCAL_PATH)/Open-Transactions/include/lucre \
+	$(LOCAL_PATH)/Open-Transactions/include/otapi \
+	$(LOCAL_PATH)/Open-Transactions/include/otlib \
+	$(LOCAL_PATH)/Open-Transactions/include/ots \
+	$(LOCAL_PATH)/Open-Transactions/include/simpleini \
+	$(LOCAL_PATH)/Open-Transactions/swig/otapi
 
 
-local_ld_libs := -lprotobuf -D_THREAD_SAFE -lzmq -lmsgpack -lssl -lcrypto
+#local_ld_libs := -lprotobuf -D_THREAD_SAFE -lzmq -lssl -lcrypto
 
 
 #######################################
 
 # target
 include $(CLEAR_VARS)
-include $(LOCAL_PATH)/../android-config.mk
+#include $(LOCAL_PATH)/../android-config.mk
 LOCAL_SRC_FILES += $(local_src_files)
 LOCAL_C_INCLUDES += $(local_c_includes)
-LOCAL_LDLIBS += $(local_ld_libs)
+#LOCAL_LDLIBS += $(local_ld_libs)
 ifeq ($(TARGET_SIMULATOR),true)
     LOCAL_LDLIBS += -ldl
 endif
@@ -118,10 +116,10 @@ include $(BUILD_SHARED_LIBRARY)
 # host shared library
 ifeq ($(WITH_HOST_DALVIK),true)
     include $(CLEAR_VARS)
-    include $(LOCAL_PATH)/../android-config.mk
+#    include $(LOCAL_PATH)/../android-config.mk
     LOCAL_SRC_FILES += $(local_src_files)
     LOCAL_C_INCLUDES += $(local_c_includes)
-    LOCAL_LDLIBS += $(local_ld_libs)
+#    LOCAL_LDLIBS += $(local_ld_libs)
     LOCAL_MODULE_TAGS := optional
     LOCAL_MODULE:= libotapi
     include $(BUILD_SHARED_LIBRARY)
@@ -131,10 +129,12 @@ endif
 # host static library, which is used by some SDK tools.
 
 include $(CLEAR_VARS)
-include $(LOCAL_PATH)/../android-config.mk
+#include $(LOCAL_PATH)/../android-config.mk
 LOCAL_SRC_FILES += $(local_src_files)
 LOCAL_C_INCLUDES += $(local_c_includes)
-LOCAL_LDLIBS += $(local_ld_libs)
+#LOCAL_LDLIBS += $(local_ld_libs)
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE:= libotapi_static
 include $(BUILD_STATIC_LIBRARY)
+
+
