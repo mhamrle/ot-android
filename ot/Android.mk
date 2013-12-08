@@ -1,6 +1,7 @@
 LOCAL_PATH:= $(call my-dir)
 
 
+
 local_src_files := \
 	Open-Transactions/src/otapi/OTAPI.cpp \
 	Open-Transactions/src/otapi/OTClient.cpp \
@@ -72,10 +73,10 @@ local_src_files := \
 	Open-Transactions/src/otlib/otext/Timer.cpp \
 	Open-Transactions/src/otlib/otext/anyoption.cpp \
 	Open-Transactions/src/otlib/otext/tinythread.cpp \
-	Open-Transactions/src/otlib/otprotob/Bitcoin.cc \
-	Open-Transactions/src/otlib/otprotob/Generics.cc \
-	Open-Transactions/src/otlib/otprotob/Markets.cc \
-	Open-Transactions/src/otlib/otprotob/Moneychanger.cc \
+	Open-Transactions/src/otlib/otprotob/Bitcoin-lite.pb.cc \
+	Open-Transactions/src/otlib/otprotob/Generics-lite.pb.cc \
+	Open-Transactions/src/otlib/otprotob/Markets-lite.pb.cc \
+	Open-Transactions/src/otlib/otprotob/Moneychanger-lite.pb.cc \
 	Open-Transactions/src/otlib/simpleini/ConvertUTF.cpp \
 	Open-Transactions/src/otlib/otext/mkcert.cpp \
 	Open-Transactions/swig/otapi/OTAPI-java.cxx
@@ -85,7 +86,7 @@ local_c_includes := \
     $(LOCAL_PATH)/protobuf/src \
     $(LOCAL_PATH)/ChaiScript/include \
     $(LOCAL_PATH)/zeromq2-x/include \
-    $(LOCAL_PATH)/../openssl-android/include \
+    $(NDK_PROJECT_PATH)/../openssl-android/include \
 	$(LOCAL_PATH)/Open-Transactions/include \
 	$(LOCAL_PATH)/Open-Transactions/include/bigint \
 	$(LOCAL_PATH)/Open-Transactions/include/containers \
@@ -98,23 +99,29 @@ local_c_includes := \
 	$(LOCAL_PATH)/Open-Transactions/swig/otapi
 
 
-#    $(TOOLCHAIN)/include/c++/4.6
 
-#local_ld_libs := -lprotobuf -D_THREAD_SAFE -lzmq -lssl -lcrypto
-#local_ld_libs := -llog -lutils
+local_ld_libs := -L$(NDK_PROJECT_PATH)/libs/
+local_ld_libs += -lprotobuf
 
-otapi_build_flags := -DOT_ZMQ_MODE
+local_ld_libs += -L$(NDK_PROJECT_PATH)/../openssl-android/libs/
+local_ld_libs += -lcrypto -lssl
 
 
+#warning: might need to put -pthread BEFORE exceptions and rtti (see Application.mk)
+
+otapi_build_flags := -DOT_ZMQ_MODE -D_THREAD_SAFE -pthread
+
+
+#local_ld_libs := -lzmq
 #######################################
 
 # target
 include $(CLEAR_VARS)
-#include $(LOCAL_PATH)/../android-config.mk
+# include $(LOCAL_PATH)/../android-config.mk
 LOCAL_SRC_FILES += $(local_src_files)
 LOCAL_C_INCLUDES += $(local_c_includes)
 LOCAL_CFLAGS += $(otapi_build_flags)
-#LOCAL_LDLIBS += $(local_ld_libs)
+LOCAL_SHARED_LIBRARIES += $(local_ld_libs)
 ifeq ($(TARGET_SIMULATOR),true)
     LOCAL_LDLIBS += -ldl
 endif
@@ -126,33 +133,37 @@ include $(BUILD_SHARED_LIBRARY)
 # host shared library
 ifeq ($(WITH_HOST_DALVIK),true)
     include $(CLEAR_VARS)
-#    include $(LOCAL_PATH)/../android-config.mk
+#   include $(LOCAL_PATH)/../android-config.mk
     LOCAL_SRC_FILES += $(local_src_files)
     LOCAL_C_INCLUDES += $(local_c_includes)
     LOCAL_CFLAGS += $(otapi_build_flags)
-#    LOCAL_LDLIBS += $(local_ld_libs)
+    LOCAL_SHARED_LIBRARIES += $(local_ld_libs)
     LOCAL_MODULE_TAGS := optional
-    LOCAL_MODULE:= libotapi
+    LOCAL_MODULE:= libotapi-host
     include $(BUILD_SHARED_LIBRARY)
 endif
 
 ########################################
 # host static library, which is used by some SDK tools.
 
+#include $(CLEAR_VARS)
+#LOCAL_SRC_FILES += $(local_src_files)
+#LOCAL_C_INCLUDES += $(local_c_includes)
+#LOCAL_CFLAGS += $(otapi_build_flags)
+#LOCAL_STATIC_LIBRARIES += libcrypto_static libssl_static
+#LOCAL_MODULE_TAGS := optional
+#LOCAL_MODULE:= libotapi_static
+#include $(BUILD_STATIC_LIBRARY)
+
+
+#$(call import-add-path,$(LOCAL_PATH))
+#$(call import-module,protobuf)
+
+
+# libprotobuf
 include $(CLEAR_VARS)
-#include $(LOCAL_PATH)/../android-config.mk
-LOCAL_SRC_FILES += $(local_src_files)
-LOCAL_C_INCLUDES += $(local_c_includes)
-LOCAL_CFLAGS += $(otapi_build_flags)
-#LOCAL_LDLIBS += $(local_ld_libs)
-LOCAL_MODULE_TAGS := optional
-LOCAL_MODULE:= libotapi_static
-include $(BUILD_STATIC_LIBRARY)
-
-
-
-
-
+LOCAL_MODULE := protobuf
+include $(LOCAL_PATH)/protobuf.mk
 
 
 

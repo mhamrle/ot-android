@@ -4,9 +4,6 @@
 [submodule "ot/zeromq2-x"]
 	path = ot/zeromq2-x
 	url = https://github.com/zeromq/zeromq2-x
-[submodule "ot/protobuf"]
-	path = ot/protobuf
-	url = https://github.com/lisong/protobuf-ios-and-android-ndk.git
 [submodule "ot/ChaiScript"]
 	path = ot/ChaiScript
 	url = https://github.com/ChaiScript/ChaiScript.git
