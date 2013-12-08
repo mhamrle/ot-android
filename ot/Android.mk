@@ -82,6 +82,10 @@ local_src_files := \
 
 
 local_c_includes := \
+    $(LOCAL_PATH)/protobuf/src \
+    $(LOCAL_PATH)/ChaiScript/include \
+    $(LOCAL_PATH)/zeromq2-x/include \
+    $(LOCAL_PATH)/../openssl-android/include \
 	$(LOCAL_PATH)/Open-Transactions/include \
 	$(LOCAL_PATH)/Open-Transactions/include/bigint \
 	$(LOCAL_PATH)/Open-Transactions/include/containers \
@@ -94,7 +98,12 @@ local_c_includes := \
 	$(LOCAL_PATH)/Open-Transactions/swig/otapi
 
 
+#    $(TOOLCHAIN)/include/c++/4.6
+
 #local_ld_libs := -lprotobuf -D_THREAD_SAFE -lzmq -lssl -lcrypto
+#local_ld_libs := -llog -lutils
+
+otapi_build_flags := -DOT_ZMQ_MODE
 
 
 #######################################
@@ -104,6 +113,7 @@ include $(CLEAR_VARS)
 #include $(LOCAL_PATH)/../android-config.mk
 LOCAL_SRC_FILES += $(local_src_files)
 LOCAL_C_INCLUDES += $(local_c_includes)
+LOCAL_CFLAGS += $(otapi_build_flags)
 #LOCAL_LDLIBS += $(local_ld_libs)
 ifeq ($(TARGET_SIMULATOR),true)
     LOCAL_LDLIBS += -ldl
@@ -119,6 +129,7 @@ ifeq ($(WITH_HOST_DALVIK),true)
 #    include $(LOCAL_PATH)/../android-config.mk
     LOCAL_SRC_FILES += $(local_src_files)
     LOCAL_C_INCLUDES += $(local_c_includes)
+    LOCAL_CFLAGS += $(otapi_build_flags)
 #    LOCAL_LDLIBS += $(local_ld_libs)
     LOCAL_MODULE_TAGS := optional
     LOCAL_MODULE:= libotapi
@@ -132,9 +143,20 @@ include $(CLEAR_VARS)
 #include $(LOCAL_PATH)/../android-config.mk
 LOCAL_SRC_FILES += $(local_src_files)
 LOCAL_C_INCLUDES += $(local_c_includes)
+LOCAL_CFLAGS += $(otapi_build_flags)
 #LOCAL_LDLIBS += $(local_ld_libs)
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE:= libotapi_static
 include $(BUILD_STATIC_LIBRARY)
+
+
+
+
+
+
+
+
+
+
 
 

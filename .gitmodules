@@ -10,6 +10,3 @@
 [submodule "ot/ChaiScript"]
 	path = ot/ChaiScript
 	url = https://github.com/ChaiScript/ChaiScript.git
-[submodule "openssl-android"]
-	path = openssl-android
-	url = git@github.com:FellowTraveler/openssl-android.git
