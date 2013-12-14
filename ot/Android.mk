@@ -100,11 +100,14 @@ local_c_includes := \
 
 
 
-local_ld_libs := -L$(NDK_PROJECT_PATH)/libs/
-local_ld_libs += -lprotobuf
+local_shared_libs := libcrypto libssl libprotobuf
 
-local_ld_libs += -L$(NDK_PROJECT_PATH)/../openssl-android/libs/
-local_ld_libs += -lcrypto -lssl
+
+#local_ld_libs := -L$(NDK_PROJECT_PATH)/libs/
+#local_ld_libs += -lprotobuf
+
+#local_ld_libs := -L$(NDK_PROJECT_PATH)/../openssl-android/libs/
+#local_ld_libs += -lcrypto -lssl
 
 
 #warning: might need to put -pthread BEFORE exceptions and rtti (see Application.mk)
@@ -121,7 +124,8 @@ include $(CLEAR_VARS)
 LOCAL_SRC_FILES += $(local_src_files)
 LOCAL_C_INCLUDES += $(local_c_includes)
 LOCAL_CFLAGS += $(otapi_build_flags)
-LOCAL_SHARED_LIBRARIES += $(local_ld_libs)
+LOCAL_SHARED_LIBRARIES += $(local_shared_libs)
+#LOCAL_LDLIBS += $(local_ld_libs)
 ifeq ($(TARGET_SIMULATOR),true)
     LOCAL_LDLIBS += -ldl
 endif
@@ -137,7 +141,8 @@ ifeq ($(WITH_HOST_DALVIK),true)
     LOCAL_SRC_FILES += $(local_src_files)
     LOCAL_C_INCLUDES += $(local_c_includes)
     LOCAL_CFLAGS += $(otapi_build_flags)
-    LOCAL_SHARED_LIBRARIES += $(local_ld_libs)
+    LOCAL_SHARED_LIBRARIES += $(local_shared_libs)
+#   LOCAL_LDLIBS += $(local_ld_libs)
     LOCAL_MODULE_TAGS := optional
     LOCAL_MODULE:= libotapi-host
     include $(BUILD_SHARED_LIBRARY)
@@ -156,14 +161,19 @@ endif
 #include $(BUILD_STATIC_LIBRARY)
 
 
-#$(call import-add-path,$(LOCAL_PATH))
-#$(call import-module,protobuf)
+#$(call import-add-path,"/Users/au/Projects/openssl-android")
+#$(call import-module,ssl)
+
 
 
 # libprotobuf
 include $(CLEAR_VARS)
 LOCAL_MODULE := protobuf
 include $(LOCAL_PATH)/protobuf.mk
+
+
+
+$(call import-module,openssl-android)
 
 
 

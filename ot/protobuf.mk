@@ -38,7 +38,8 @@ CC_LITE_SRC_FILES := \
     src/google/protobuf/generated_message_util.cc                    \
     src/google/protobuf/repeated_field.cc                            \
     src/google/protobuf/io/coded_stream.cc                           \
-    src/google/protobuf/io/zero_copy_stream.cc
+    src/google/protobuf/io/zero_copy_stream.cc                       \
+    src/google/protobuf/stubs/atomicops_internals_x86_gcc.cc
 
 CC_PROTOBUF_SRC_FILES := \
     $(CC_LITE_SRC_FILES)                                             \
@@ -64,7 +65,6 @@ CC_PROTOBUF_SRC_FILES := \
     src/google/protobuf/compiler/importer.cc                         \
     src/google/protobuf/compiler/parser.cc                           \
     src/google/protobuf/stubs/stringprintf.cc                        \
-    src/google/protobuf/stubs/atomicops_internals_x86_gcc.cc
 
 
 COMPILER_SRC_FILES :=  \
