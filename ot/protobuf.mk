@@ -18,7 +18,7 @@
 #export CPPFLAGS="-I$ANDROID_ROOT/platforms/android-$TARGET_PLATFORM_VER/arch-$TOOLCHAIN_CPU/usr/include/"
 #export LIBS="-lc "
 #export PATH=$ANDR_SDK/tools:$ANDR_SDK/platform-tools:$NDK/toolchains/$TOOLCHAIN_CPU-$TOOLCHAIN_VERSION/prebuilt/$BUILD_PLATFORM/bin:$PATH
-#./configure --host=$TOOLCHAIN_CPU --with-sysroot=$SYSROOT CC=$CC CXX=$CXX --enable-cross-compile --with-protoc=protoc LIBS=$LIBS
+#./configure --host=x86-i686-linux-android --with-sysroot=$PLATFORM CC=$CC CXX=$CXX --enable-cross-compile --with-protoc=protoc LIBS=$LIBS
 
 
 LOCAL_PATH := $(call my-dir)/protobuf
