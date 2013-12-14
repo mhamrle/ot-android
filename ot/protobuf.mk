@@ -173,7 +173,7 @@ LOCAL_LDLIBS := -lz
 #LOCAL_C_INCLUDES += external/stlport/stlport
 #LOCAL_SHARED_LIBRARIES += libstlport
 #endif
-
+#
 # NOTE: I think I have rtti, so no need to remove it.
 #LOCAL_CFLAGS := -DGOOGLE_PROTOBUF_NO_RTTI
 

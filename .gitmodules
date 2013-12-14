@@ -1,6 +1,15 @@
-[submodule "ot/zeromq2-x"]
-	path = ot/zeromq2-x
-	url = https://github.com/zeromq/zeromq2-x
 [submodule "ot/ChaiScript"]
 	path = ot/ChaiScript
 	url = https://github.com/ChaiScript/ChaiScript.git
+[submodule "ot/protobuf"]
+	path = ot/protobuf
+	url = https://code.google.com/p/protobuf-git/
+[submodule "ot/openssl-android"]
+	path = ot/openssl-android
+	url = https://github.com/FellowTraveler/openssl-android.git
+[submodule "ot/Open-Transactions"]
+	path = ot/Open-Transactions
+	url = https://github.com/FellowTraveler/Open-Transactions.git
+[submodule "ot/zeromq"]
+	path = ot/zeromq
+	url = https://github.com/zeromq/zeromq2-x
