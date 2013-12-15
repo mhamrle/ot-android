@@ -79,7 +79,10 @@ local_src_files := \
 	Open-Transactions/src/otlib/otprotob/Moneychanger-lite.pb.cc \
 	Open-Transactions/src/otlib/simpleini/ConvertUTF.cpp \
 	Open-Transactions/src/otlib/otext/mkcert.cpp \
-	Open-Transactions/swig/otapi/OTAPI-java.cxx
+	Open-Transactions/swig/otapi/OTAPI-java.cxx \
+	ChaiScript/src/chaiscript_stdlib.cpp \
+	ChaiScript/src/reflection.cpp \
+	ChaiScript/src/stl_extra.cpp
 
 
 local_c_includes := \

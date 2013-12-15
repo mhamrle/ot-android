@@ -18,20 +18,3 @@ APP_CPPFLAGS += -fexceptions -frtti
 
 APP_BUILD_SCRIPT := $(APP_PROJECT_PATH)/Android.mk
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-#APP_BUILD_SCRIPT := $(APP_PROJECT_PATH)/ot/Android.mk
-#APP_BUILD_SCRIPT := $(APP_PROJECT_PATH)/ot/protobuf.mk
-
-
