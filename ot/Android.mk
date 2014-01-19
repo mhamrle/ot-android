@@ -103,7 +103,7 @@ local_c_includes := \
 
 
 
-local_shared_libs := libcrypto libssl libprotobuf libzeromq
+local_shared_libs := libcryptoot libssl libprotobuf libzeromq
 
 
 local_ld_libs += -llog -lz
@@ -154,7 +154,7 @@ endif
 #LOCAL_SRC_FILES += $(local_src_files)
 #LOCAL_C_INCLUDES += $(local_c_includes)
 #LOCAL_CFLAGS += $(otapi_build_flags)
-#LOCAL_STATIC_LIBRARIES += libcrypto_static libssl_static
+#LOCAL_STATIC_LIBRARIES += libcryptoot_static libssl_static
 #LOCAL_MODULE_TAGS := optional
 #LOCAL_MODULE:= libotapi_static
 #include $(BUILD_STATIC_LIBRARY)

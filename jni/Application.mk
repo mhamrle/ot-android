@@ -1,14 +1,15 @@
 APP_PROJECT_PATH := $(shell pwd)
 
-APP_PLATFORM := android-8
+APP_PLATFORM := android-9
 
-APP_ABI := x86
+#APP_ABI := x86
+APP_ABI := all
 
 NDK_TOOLCHAIN_VERSION=4.8
 
 APP_STL := gnustl_shared
 
-APP_MODULES = libcrypto libssl libprotobuf libzeromq libotapi
+APP_MODULES = libcryptoot libssl libprotobuf libzeromq libotapi
 
 APP_CFLAGS := --std=c++11
 

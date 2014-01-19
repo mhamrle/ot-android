@@ -30,6 +30,13 @@ CC_LITE_ONLY_FILES := \
     src/google/protobuf/wire_format_lite.cc                          \
     src/google/protobuf/io/zero_copy_stream_impl_lite.cc
 
+ifeq ($(TARGET_ARCH),x86)
+CC_PLATFORM_DEP_FILES := \
+    src/google/protobuf/stubs/atomicops_internals_x86_gcc.cc
+else
+    CC_PLATFORM_DEP_FILES :=
+endif
+
 CC_LITE_SRC_FILES := \
     $(CC_LITE_ONLY_FILES)                                            \
     src/google/protobuf/stubs/common.cc                              \
@@ -39,7 +46,7 @@ CC_LITE_SRC_FILES := \
     src/google/protobuf/repeated_field.cc                            \
     src/google/protobuf/io/coded_stream.cc                           \
     src/google/protobuf/io/zero_copy_stream.cc                       \
-    src/google/protobuf/stubs/atomicops_internals_x86_gcc.cc
+    $(CC_PLATFORM_DEP_FILES)
 
 CC_PROTOBUF_SRC_FILES := \
     $(CC_LITE_SRC_FILES)                                             \

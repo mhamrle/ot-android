@@ -79,7 +79,7 @@ local_c_includes := \
     $(LOCAL_PATH)/../openssl-android/include
 
 
-local_shared_libs := libcrypto
+local_shared_libs := libcryptoot
 
 zmq_build_flags := -pthread
 
@@ -123,7 +123,7 @@ endif
 #LOCAL_SRC_FILES += $(local_src_files)
 #LOCAL_C_INCLUDES += $(local_c_includes)
 #LOCAL_CFLAGS += $(zmq_build_flags)
-#LOCAL_STATIC_LIBRARIES += libcrypto_static libssl_static
+#LOCAL_STATIC_LIBRARIES += libcryptoot_static libssl_static
 #LOCAL_MODULE_TAGS := optional
 #LOCAL_MODULE:= libzeromq_static
 #include $(BUILD_STATIC_LIBRARY)
