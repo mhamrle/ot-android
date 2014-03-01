@@ -13,6 +13,7 @@ local_src_files := \
 	Open-Transactions/src/otlib/OTASCIIArmor.cpp \
 	Open-Transactions/src/otlib/OTAccount.cpp \
 	Open-Transactions/src/otlib/OTAgreement.cpp \
+	Open-Transactions/src/otlib/OTAssert.cpp \
 	Open-Transactions/src/otlib/OTAssetContract.cpp \
 	Open-Transactions/src/otlib/OTAsymmetricKey.cpp \
 	Open-Transactions/src/otlib/OTBasket.cpp \
