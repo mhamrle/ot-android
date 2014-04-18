@@ -4,12 +4,19 @@ include $(CLEAR_VARS)
 
 local_src_files := \
 	Open-Transactions/src/otapi/OTAPI.cpp \
+	Open-Transactions/src/otapi/OTAPI_Exec.cpp \
 	Open-Transactions/src/otapi/OTClient.cpp \
 	Open-Transactions/src/otapi/OTServerConnection.cpp \
 	Open-Transactions/src/otapi/OpenTransactions.cpp \
 	Open-Transactions/src/otapi/OTAPI_Basic.cpp \
 	Open-Transactions/src/otapi/OTMadeEasy.cpp \
 	Open-Transactions/src/otapi/OT_ME.cpp \
+	Open-Transactions/src/otapi/OT_ME_NEW.cpp \
+    Open-Transactions/src/otapi/ot_commands_ot.cpp \
+    Open-Transactions/src/otapi/ot_opentxs_ot.cpp \
+    Open-Transactions/src/otapi/ot_utility_ot.cpp \
+    Open-Transactions/src/otapi/ot_made_easy_ot.cpp \
+    Open-Transactions/src/otapi/ot_otapi_ot.cpp \
 	Open-Transactions/src/otlib/OTASCIIArmor.cpp \
 	Open-Transactions/src/otlib/OTAccount.cpp \
 	Open-Transactions/src/otlib/OTAgreement.cpp \
@@ -80,15 +87,11 @@ local_src_files := \
 	Open-Transactions/src/otlib/otprotob/Moneychanger-lite.pb.cc \
 	Open-Transactions/src/otlib/simpleini/ConvertUTF.cpp \
 	Open-Transactions/src/otlib/otext/mkcert.cpp \
-	Open-Transactions/swig/otapi/OTAPI-java.cxx \
-	ChaiScript/src/chaiscript_stdlib.cpp \
-	ChaiScript/src/reflection.cpp \
-	ChaiScript/src/stl_extra.cpp
+	Open-Transactions/swig/otapi/OTAPI-java.cxx
 
 
 local_c_includes := \
     $(LOCAL_PATH)/protobuf/src \
-    $(LOCAL_PATH)/ChaiScript/include \
     $(LOCAL_PATH)/zeromq/include \
     $(LOCAL_PATH)/openssl-android/include \
 	$(LOCAL_PATH)/Open-Transactions/include \

@@ -4,7 +4,7 @@ echo "cd ot/Open-Transactions/src/otlib/otprotob"
 cd ot/Open-Transactions/src/otlib/otprotob
 
 
-echo "Removing lite files (if they're there -- they may not be.)"
+echo "Removing lite files (if they're there -- THEY MAY NOT BE.)"
 
 rm Bitcoin-lite.proto
 rm Generics-lite.proto

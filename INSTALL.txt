@@ -1,43 +1,51 @@
 
 
-git clone https://github.com/monetas/ot-android.git
+    $ git clone https://github.com/monetas/ot-android.git
 
-cd ot-android
+    $ cd ot-android
 
-git submodule init
-git submodule update
+    $ git submodule init
+    $ git submodule update
 
 -----------------------------------------
 
-cd ot/protobuf
+Install the protobuf compiler (protoc) version specified in getProtobufLibrary.sh (2.5.0 currently) on your system.  Usually done by installing some sort protobuf package.
 
-===> Here do autogen.sh and then the "configure" instructions 
-===> from the top of ot/protobuf.mk
+You can verify the version using:  
+    $ protoc --version
 
-cd ../..
+-----------------------------------------
+
+Download and configure the protobuf package:
+
+    $ getProtobufLibrary.sh
+
+NOTE: If you want to tweak the specifics of the Android platform and version,
+      you should look at the exports in this file, and the configure line.
+      This information comes from the comments at the top of ot/protobuf.mk
 
 -----------------------------------------
 
 // NOTE: the version of protobuf on your system must be the same
 // as the version of protobuf in the submodule, before you genproto.
 
-./genproto.sh
+    $ ./genproto.sh
 
 -----------------------------------------
 
-cp ot/ot_config.h ot/Open-Transactions/include/otlib/
+    $ cp ot/ot_config.h ot/Open-Transactions/include/otlib/
 
 (NOTE: Might want to scroll through this file and make sure it looks cool...
  I basically had to create it by hand since I couldn't get configure script working)
 
 -----------------------------------------
 
-cp ot/platform.hpp ot/zeromq/src/
+    $ cp ot/platform.hpp ot/zeromq/src/
 
 
------------------------------------------
+TO BUILD:
 
-ndk-build
+    $ ndk-build
 
 
 
