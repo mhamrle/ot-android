@@ -8,8 +8,6 @@ local_src_files := \
 	Open-Transactions/src/otapi/OTClient.cpp \
 	Open-Transactions/src/otapi/OTServerConnection.cpp \
 	Open-Transactions/src/otapi/OpenTransactions.cpp \
-	Open-Transactions/src/otapi/OTAPI_Basic.cpp \
-	Open-Transactions/src/otapi/OTMadeEasy.cpp \
 	Open-Transactions/src/otapi/OT_ME.cpp \
 	Open-Transactions/src/otapi/OT_ME_NEW.cpp \
     Open-Transactions/src/otapi/ot_commands_ot.cpp \
@@ -17,6 +15,8 @@ local_src_files := \
     Open-Transactions/src/otapi/ot_utility_ot.cpp \
     Open-Transactions/src/otapi/ot_made_easy_ot.cpp \
     Open-Transactions/src/otapi/ot_otapi_ot.cpp \
+    Open-Transactions/src/otapi/OTRecord.cpp \
+    Open-Transactions/src/otapi/OTRecordList.cpp \
 	Open-Transactions/src/otlib/OTASCIIArmor.cpp \
 	Open-Transactions/src/otlib/OTAccount.cpp \
 	Open-Transactions/src/otlib/OTAgreement.cpp \
