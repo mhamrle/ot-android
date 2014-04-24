@@ -48,6 +48,36 @@ TO BUILD:
     $ ndk-build
 
 
+-----------------------------------------
+
+
+WARNING:
+The current version of OT has a build error on Android:
+
+[armeabi-v7a] Compile++ thumb: otapi <= OTAPI-java.cxx
+/Users/au/Projects/ot-android/ot/Open-Transactions/swig/otapi/OTAPI-java.cxx: In function 'jlong Java_org_opentransactions_otapi_otapiJNI_imaxabs(JNIEnv*, jclass, jlong)':
+/Users/au/Projects/ot-android/ot/Open-Transactions/swig/otapi/OTAPI-java.cxx:1035:34: error: 'imaxabs' was not declared in this scope
+   result = (intmax_t)imaxabs(arg1);
+                                  ^
+/Users/au/Projects/ot-android/ot/Open-Transactions/swig/otapi/OTAPI-java.cxx: In function 'jlong Java_org_opentransactions_otapi_otapiJNI_imaxdiv(JNIEnv*, jclass, jlong, jlong)':
+/Users/au/Projects/ot-android/ot/Open-Transactions/swig/otapi/OTAPI-java.cxx:1051:29: error: 'imaxdiv' was not declared in this scope
+   result = imaxdiv(arg1,arg2);
+                             ^
+make: *** [obj/local/armeabi-v7a/objs/otapi/Open-Transactions/swig/otapi/OTAPI-java.o] Error 1
+
+-----------------------------------------
+
+WORKAROUND:
+
+--- Open the file:  ot-android/ot/Open-Transactions/swig/otapi/OTAPI-java.cxx
+
+--- At line 1041, erase the entire function named: Java_org_opentransactions_otapi_otapiJNI_imaxdiv
+
+--- At line 1027, erase the entire function named: Java_org_opentransactions_otapi_otapiJNI_imaxabs
+
+--- Save and close. Then:
+
+    $ ndk-build
 
 
 
