@@ -7,3 +7,6 @@
 [submodule "ot/Open-Transactions"]
 	path = ot/Open-Transactions
 	url = git://github.com/Open-Transactions/Open-Transactions.git
+[submodule "ot/android-cmake"]
+	path = ot/android-cmake
+	url = git@github.com:taka-no-me/android-cmake.git
