@@ -6,7 +6,8 @@
 	url = https://github.com/zeromq/zeromq2-x
 [submodule "ot/Open-Transactions"]
 	path = ot/Open-Transactions
-	url = git://github.com/Open-Transactions/Open-Transactions.git
+	url = git@github.com:Open-Transactions/opentxs.git
+	branch = develop
 [submodule "ot/android-cmake"]
 	path = ot/android-cmake
 	url = git@github.com:taka-no-me/android-cmake.git
