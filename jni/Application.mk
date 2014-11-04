@@ -9,7 +9,7 @@ NDK_TOOLCHAIN_VERSION=4.8
 
 APP_STL := gnustl_shared
 
-APP_MODULES = libcryptoot libssl libprotobuf libzeromq libotapi
+APP_MODULES = libcryptoot libssl libprotobuf
 
 APP_CFLAGS := --std=c++11
 
