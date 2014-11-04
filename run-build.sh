@@ -9,6 +9,10 @@ if [ -z "${ANDROID_NDK}" ] ; then
    exit 1
 fi
 
+if [ -z "${OT_PATH}"]; then
+   OT_PATH=${FULL_PATH}/ot/Open-Transactions/
+fi
+
 git submodule init
 git submodule update
 
@@ -33,8 +37,8 @@ for arch in ${BUILD_ARCHS:-armeabi armeabi-v7a x86}; do
             cd ${FULL_PATH}/build/$arch
 
             # TODO configurarion needs to be run twice
-            cmake -DUSE_CCACHE=yes -DCMAKE_TOOLCHAIN_FILE=${FULL_PATH}/ot/android-cmake/android.toolchain.cmake -DANDROID_ABI=${arch} -DCMAKE_INSTALL_PREFIX=${FULL_PATH}/install/${arch}/  ${FULL_PATH}/ot/Open-Transactions/ || \
-            cmake -DUSE_CCACHE=yes -DCMAKE_TOOLCHAIN_FILE=${FULL_PATH}/ot/android-cmake/android.toolchain.cmake -DANDROID_ABI=${arch} -DCMAKE_INSTALL_PREFIX=${FULL_PATH}/install/${arch}/  ${FULL_PATH}/ot/Open-Transactions/
+            cmake -DUSE_CCACHE=yes -DCMAKE_TOOLCHAIN_FILE=${FULL_PATH}/ot/android-cmake/android.toolchain.cmake -DANDROID_ABI=${arch} -DCMAKE_INSTALL_PREFIX=${FULL_PATH}/install/${arch}/ ${OT_PATH} || \
+            cmake -DUSE_CCACHE=yes -DCMAKE_TOOLCHAIN_FILE=${FULL_PATH}/ot/android-cmake/android.toolchain.cmake -DANDROID_ABI=${arch} -DCMAKE_INSTALL_PREFIX=${FULL_PATH}/install/${arch}/ ${OT_PATH}
             make -j`nproc`
         )
 
