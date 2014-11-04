@@ -22,7 +22,7 @@ cd $SRCROOT
 openssl sha1 ./$ARCHIVE | grep $SHA1)
 
 #echo "Unpacking"
-[ -f ./$PACKAGE_NAME/$TEST_FILE_PATH ] || tar -xzf $ARCHIVE
+[ -f ./$PACKAGE_NAME/$TEST_FILE_PATH ] || tar -xjf $ARCHIVE
 
 
 
