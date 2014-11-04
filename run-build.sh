@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 set -e
 
@@ -12,10 +12,9 @@ fi
 git submodule init
 git submodule update
 
-
 ./getProtobufLibrary.sh
 
-for arch in armeabi armeabi-v7a x86; do
+for arch in ${BUILD_ARCHS:-armeabi armeabi-v7a x86}; do
         $ANDROID_NDK/ndk-build APP_ABI="$arch" -j`nproc`
 
         mkdir -p install/${arch}/
