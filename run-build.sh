@@ -9,7 +9,7 @@ if [ -z "${ANDROID_NDK}" ] ; then
    exit 1
 fi
 
-if [ -z "${OT_PATH}"]; then
+if [ -z "${OT_PATH}" ]; then
    OT_PATH=${FULL_PATH}/ot/Open-Transactions/
 fi
 
