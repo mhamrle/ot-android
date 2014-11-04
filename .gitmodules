@@ -3,4 +3,4 @@
 	url = https://github.com/FellowTraveler/openssl-android.git
 [submodule "ot/android-cmake"]
 	path = ot/android-cmake
-	url = git@github.com:taka-no-me/android-cmake.git
+	url = https://github.com/taka-no-me/android-cmake.git
