@@ -4,7 +4,7 @@ set -e
 
 FULL_PATH=$(pwd)
 
-if -z "${ANDROID_NDK}"; then
+if [ -z "${ANDROID_NDK}" ] ; then
    echo "please set ANDROID_NDK"
    exit 1
 fi
