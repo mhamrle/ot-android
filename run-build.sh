@@ -18,7 +18,7 @@ git submodule update
 
 ./getProtobufLibrary.sh
 
-for arch in ${BUILD_ARCHS:-armeabi armeabi-v7a x86}; do
+for arch in ${BUILD_ARCHS:-armeabi armeabi-v7a x86 mips}; do
         $ANDROID_NDK/ndk-build APP_ABI="$arch" -j`nproc`
 
         mkdir -p install/${arch}/
@@ -37,8 +37,8 @@ for arch in ${BUILD_ARCHS:-armeabi armeabi-v7a x86}; do
             cd ${FULL_PATH}/build/$arch
 
             # TODO configurarion needs to be run twice
-            cmake -DUSE_CCACHE=yes -DCMAKE_TOOLCHAIN_FILE=${FULL_PATH}/ot/android-cmake/android.toolchain.cmake -DANDROID_ABI=${arch} -DCMAKE_INSTALL_PREFIX=${FULL_PATH}/install/${arch}/ ${OT_PATH} || \
-            cmake -DUSE_CCACHE=yes -DCMAKE_TOOLCHAIN_FILE=${FULL_PATH}/ot/android-cmake/android.toolchain.cmake -DANDROID_ABI=${arch} -DCMAKE_INSTALL_PREFIX=${FULL_PATH}/install/${arch}/ ${OT_PATH}
+            cmake -DUSE_CCACHE=yes -DCMAKE_TOOLCHAIN_FILE=${FULL_PATH}/ot/android-cmake/android.toolchain.cmake -DANDROID_ABI=${arch} -DJAVA=ON -DANDROID_STL=gnustl_shared -DCMAKE_INSTALL_PREFIX=${FULL_PATH}/install/${arch}/ ${OT_PATH} || \
+            cmake -DUSE_CCACHE=yes -DCMAKE_TOOLCHAIN_FILE=${FULL_PATH}/ot/android-cmake/android.toolchain.cmake -DANDROID_ABI=${arch} -DJAVA=ON -DANDROID_STL=gnustl_shared -DCMAKE_INSTALL_PREFIX=${FULL_PATH}/install/${arch}/ ${OT_PATH}
             make -j`nproc`
         )
 
