@@ -10,7 +10,8 @@ if [ -z "${ANDROID_NDK}" ] ; then
 fi
 
 if [ -z "${OT_PATH}" ]; then
-   OT_PATH=${FULL_PATH}/ot/Open-Transactions/
+   echo "please set path to opentransaction repo OT_PATH"
+   exit 1
 fi
 
 git submodule init
@@ -48,4 +49,7 @@ for arch in ${BUILD_ARCHS:-armeabi armeabi-v7a x86 mips}; do
             cp $i ${FULL_PATH}/install/${arch}/lib/
         done
         )
+        cp -r ${OT_PATH}/include/opentxs ${FULL_PATH}/install/${arch}/include/
+        mkdir -p ${FULL_PATH}/install/${arch}/include/irrxml
+        cp -r ${OT_PATH}/deps/irrxml/*.hpp ${FULL_PATH}/install/${arch}/include/irrxml/
 done
