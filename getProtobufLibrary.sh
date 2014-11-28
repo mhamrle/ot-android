@@ -22,28 +22,32 @@ cd $SRCROOT
 openssl sha1 ./$ARCHIVE | grep $SHA1)
 
 #echo "Unpacking"
-[ -f ./$PACKAGE_NAME/$TEST_FILE_PATH ] || tar -xzf $ARCHIVE
+[ -f ./$PACKAGE_NAME/$TEST_FILE_PATH ] || tar -xjf $ARCHIVE
 
+
+if [ -z "${ANDROID_NDK}" ] ; then
+   echo "please set ANDROID_NDK"
+   exit 1
+fi
 
 
 export CROSS_COMPILE=i686-linux-android
 export TOOLCHAIN_CPU=x86
-export TOOLCHAIN_VERSION=4.8
+export TOOLCHAIN_VERSION=4.9
 export TARGET_PLATFORM_VER=9
-export BUILD_PLATFORM=darwin-x86_64
-export NDK=/Users/au/ndk
-export ANDR_SDK=/Users/au/android-sdk-macosx
-export PREBUILT=$NDK/toolchains/$TOOLCHAIN_CPU-$TOOLCHAIN_VERSION
-export PLATFORM=$NDK/platforms/android-$TARGET_PLATFORM_VER/arch-$TOOLCHAIN_CPU/
-export CC="$NDK/toolchains/$TOOLCHAIN_CPU-$TOOLCHAIN_VERSION/prebuilt/$BUILD_PLATFORM/bin/$CROSS_COMPILE-gcc"
-export CXX="$NDK/toolchains/$TOOLCHAIN_CPU-$TOOLCHAIN_VERSION/prebuilt/$BUILD_PLATFORM/bin/$CROSS_COMPILE-g++"
+export BUILD_PLATFORM=linux-x86_64
+export ANDROID_SDK=/Users/au/android-sdk-macosx
+export PREBUILT=$ANDROID_NDK/toolchains/$TOOLCHAIN_CPU-$TOOLCHAIN_VERSION
+export PLATFORM=$ANDROID_NDK/platforms/android-$TARGET_PLATFORM_VER/arch-$TOOLCHAIN_CPU/
+export CC="$ANDROID_NDK/toolchains/$TOOLCHAIN_CPU-$TOOLCHAIN_VERSION/prebuilt/$BUILD_PLATFORM/bin/$CROSS_COMPILE-gcc"
+export CXX="$ANDROID_NDK/toolchains/$TOOLCHAIN_CPU-$TOOLCHAIN_VERSION/prebuilt/$BUILD_PLATFORM/bin/$CROSS_COMPILE-g++"
 export CFLAGS="-fPIC -DANDROID -nostdlib"
-export ANDROID_ROOT="$NDK"
-export ANDROID_NDK_ROOT=$ANDROID_ROOT
+export ANDROID_ROOT="$ANDROID_NDK"
+export ANDROID_ANDROID_NDK_ROOT=$ANDROID_ROOT
 export LDFLAGS="-Wl,-rpath-link=$ANDROID_ROOT/platforms/android-$TARGET_PLATFORM_VER/arch-$TOOLCHAIN_CPU/usr/lib/ -L$ANDROID_ROOT/platforms/android-$TARGET_PLATFORM_VER/arch-$TOOLCHAIN_CPU/usr/lib/"
 export CPPFLAGS="-I$ANDROID_ROOT/platforms/android-$TARGET_PLATFORM_VER/arch-$TOOLCHAIN_CPU/usr/include/"
 export LIBS="-lc "
-export PATH=$ANDR_SDK/tools:$ANDR_SDK/platform-tools:$NDK/toolchains/$TOOLCHAIN_CPU-$TOOLCHAIN_VERSION/prebuilt/$BUILD_PLATFORM/bin:$PATH
+export PATH=$ANDROID_SDK/tools:$ANDROID_SDK/platform-tools:$ANDROID_NDK/toolchains/$TOOLCHAIN_CPU-$TOOLCHAIN_VERSION/prebuilt/$BUILD_PLATFORM/bin:$PATH
 
 
 #echo "Configuring"

@@ -16,9 +16,9 @@ include $(ZPATH)/ot/openssl-android/Android.mk
 
 include $(ZPATH)/ot/protobuf.mk
 
-include $(ZPATH)/ot/zeromq.mk
+#include $(ZPATH)/ot/zeromq.mk
 
-include $(ZPATH)/ot/Android.mk
+#include $(ZPATH)/ot/Android.mk
 
 
 
