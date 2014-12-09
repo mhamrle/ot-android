@@ -52,4 +52,8 @@ for arch in ${BUILD_ARCHS:-armeabi armeabi-v7a x86 mips}; do
         cp -r ${OT_PATH}/include/opentxs ${FULL_PATH}/install/${arch}/include/
         mkdir -p ${FULL_PATH}/install/${arch}/include/irrxml
         cp -r ${OT_PATH}/deps/irrxml/*.hpp ${FULL_PATH}/install/${arch}/include/irrxml/
+        cp -r ${FULL_PATH}/build/${arch}/wrappers/java/otx_java/ install/${arch}/
 done
+
+OT_VERSION="`cd ${OT_PATH};git describe`"
+tar cjf opentxs-${OT_VERSION}.tar.bz2 install
