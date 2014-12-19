@@ -28,7 +28,7 @@ for arch in ${BUILD_ARCHS:-armeabi armeabi-v7a x86 mips}; do
 
         cp -r ot/protobuf-2.5.0/src/google/ install/${arch}/include/
         cp -r ot/openssl-android/include/openssl/ install/${arch}/include/
-        for lib in libssl.so libprotobuf.so libcryptoot.so; do
+        for lib in libssl.so libprotobuf.so libcryptoot.so libgnustl_shared.so; do
                 cp -r libs/${arch}/${lib} install/${arch}/lib//
         done
         ln -fs libcryptoot.so  install/${arch}/lib//libcrypto.so
