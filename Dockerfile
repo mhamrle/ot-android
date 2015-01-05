@@ -10,7 +10,7 @@ RUN set +x; \
 		&& apt-get install -y software-properties-common --no-install-recommends \
 		&& add-apt-repository ppa:hamrle/ppa \
 		&& apt-get update \
-		&& apt-get install -y cmake libssl-dev protobuf-compiler libprotobuf-dev g++ libzmq3-dev libzmq3 git python3-dev swig3.0 p7zip-full curl --no-install-recommends \
+		&& apt-get install -y make cmake libssl-dev protobuf-compiler libprotobuf-dev g++ libzmq3-dev libzmq3 git python3-dev swig3.0 p7zip-full curl --no-install-recommends \
 		&& ln -s /usr/bin/swig3.0 /usr/bin/swig \
 		&& apt-get autoremove
 ENV DEBIAN_FRONTEND noninteractive
@@ -35,9 +35,6 @@ RUN curl -L http://dl.google.com/android/ndk/android-ndk-$ANDROID_NDK_VERSION-li
 ENV ANDROID_NDK /usr/local/android-ndk
 
 ##########
-## TODO merge to install phase
-RUN set +x; \
-		apt-get install make 
 
 # setup a non-root user
 RUN useradd -ms /bin/bash otuser
