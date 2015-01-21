@@ -19,6 +19,18 @@ git submodule update
 
 ./getProtobufLibrary.sh
 
+# build libsodium
+(
+        export ANDROID_NDK_HOME=$ANDROID_NDK
+        cd ot/libsodium/
+
+        ./autogen.sh
+
+        for i in dist-build/android-[^b]*.sh; do
+                $i
+        done
+)
+
 for arch in ${BUILD_ARCHS:-armeabi armeabi-v7a x86 mips}; do
         $ANDROID_NDK/ndk-build APP_ABI="$arch" -j`nproc`
 
@@ -33,6 +45,17 @@ for arch in ${BUILD_ARCHS:-armeabi armeabi-v7a x86 mips}; do
         done
         ln -fs libcryptoot.so  install/${arch}/lib//libcrypto.so
 
+        case ${arch} in
+                (armeabi)
+                        libsodiumarch=arm ;;
+                (armeabi-v7a)
+                        libsodiumarch=armv7 ;;
+                (*)
+                        libsodiumarch=${arch} ;;
+        esac
+        cp ot/libsodium/libsodium-android-${libsodiumarch}/lib/libsodium.so install/${arch}/lib/
+        cp -r ot/libsodium/libsodium-android-${libsodiumarch}/include/sodium* install/${arch}/include/
+
         (
             mkdir -p ${FULL_PATH}/build/$arch
             cd ${FULL_PATH}/build/$arch
@@ -45,7 +68,7 @@ for arch in ${BUILD_ARCHS:-armeabi armeabi-v7a x86 mips}; do
 
         (
         cd ${FULL_PATH}/build/${arch}/lib
-        for i in libJOpentxs.so libbigint.so liblucre.so libopentxs-ext*.so libopentxs-cash*.so libopentxs-basket*.so libopentxs-core*.so libopentxs-client*.so ../deps/libzmq_4/lib/libzmq.so; do
+        for i in libJOpentxs.so libbigint.so liblucre.so libopentxs-ext*.so libopentxs-cash*.so libopentxs-basket*.so libopentxs-core*.so libopentxs-client*.so ../deps/libzmq_4/lib/libzmq.so libczmq.so; do
             cp $i ${FULL_PATH}/install/${arch}/lib/
         done
         )

@@ -4,3 +4,6 @@
 [submodule "ot/android-cmake"]
 	path = ot/android-cmake
 	url = https://github.com/taka-no-me/android-cmake.git
+[submodule "ot/libsodium"]
+	path = ot/libsodium
+	url = https://github.com/jedisct1/libsodium.git
