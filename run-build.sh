@@ -68,7 +68,7 @@ for arch in ${BUILD_ARCHS:-armeabi armeabi-v7a x86 mips}; do
 
         (
         cd ${FULL_PATH}/build/${arch}/lib
-        for i in libJOpentxs.so libbigint.so liblucre.so libopentxs-ext*.so libopentxs-cash*.so libopentxs-basket*.so libopentxs-core*.so libopentxs-client*.so ../deps/libzmq_4/lib/libzmq.so libczmq.so; do
+        for i in libJOpentxs.so liblucre.so libopentxs-ext*.so libopentxs-cash*.so libopentxs-basket*.so libopentxs-core*.so libopentxs-client*.so ../deps/libzmq_4/lib/libzmq.so libczmq.so; do
             cp $i ${FULL_PATH}/install/${arch}/lib/
         done
         )
